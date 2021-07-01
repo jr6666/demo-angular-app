@@ -12,9 +12,6 @@ export class TodosComponent implements OnInit {
 
   todos: Todo[]=[];
   constructor() { 
-    const localItem=localStorage.getItem("todos");
-    if(localItem!=null)
-      this.todos=JSON.parse(localItem);
   }
 
   ngOnInit(): void {
@@ -22,11 +19,9 @@ export class TodosComponent implements OnInit {
 
   deleteTodoItem(todo: Todo): void{
     this.todos.splice(this.todos.indexOf(todo), 1);
-    localStorage.setItem("todos", JSON.stringify(this.todos));
   }
   addTodoItem(todo: Todo): void{
     this.todos.push(todo);
-    localStorage.setItem("todos", JSON.stringify(this.todos));
   }
 
 }
